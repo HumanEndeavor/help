@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+ Dir.glob('public/image/*.jpeg').each do |filename|
+ Slide.create :image => File.new(filename)
+ end
