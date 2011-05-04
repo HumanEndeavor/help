@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110504072648) do
+ActiveRecord::Schema.define(:version => 20110504152939) do
 
   create_table "images", :force => true do |t|
     t.string   "ATTACHMENT_file_name"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(:version => 20110504072648) do
 
   create_table "slides", :force => true do |t|
     t.binary "image", :limit => 10485760
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "wows", :force => true do |t|

@@ -1,7 +1,7 @@
 Help::Application.routes.draw do
+  resources :users
+
   resources :home
-  resources :slides
-  resources :images
   resources :people
 
   # The priority is based upon order of creation:
