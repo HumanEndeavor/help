@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-  # GET /images
+ #My message test
+ # GET /images
   # GET /images.xml
   def index
     @images = Image.all
