@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Help</title>
-  <%= stylesheet_link_tag 'scaffold', 'styles' %>
-  <%= javascript_include_tag 'jquery', 'jquery.sizes', 'jquery.electric-slide', 'jquery-ui' %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>Help</title>
+    <%= stylesheet_link_tag 'scaffold', 'styles','homePageSheet' %>
+    <%= javascript_include_tag 'jquery', 'jquery.sizes', 'jquery.electric-slide', 'jquery-ui','scripts' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="main">
+     
+      <div id="topBanner">
+        <center><h1><%= image_tag("banner.png") %></h1></center>
+      </div>
+      <div id="tabs">
+        <center>
+          <ul>
+            <div style="position:relative; top: -50px; left: -80px; z-index:5; display:inline;">
+            <li><%= link_to 'Education',root_path %></li>
+            </div>
+            <div style="position:relative; top: -70px; left: -60px; z-index:5; display:inline;">
+              <li><%= link_to 'Old-age Home',people_path %></li>
+            </div>
+            <div style="position:relative; top: -90px; left: -40px; z-index:5; display:inline;">
+              <li><%= link_to 'Orphanages',root_path %></li>
+            </div>
+            <div style="position:relative; top: -90px; left: -20px; z-index:5; display:inline;">
+              <li><%= link_to 'Medical Facilities',root_path %></li>
+            </div>
+            <div style="position:relative; top: -70px; left: -15px; z-index:5; display:inline;">
+              <li><%= link_to 'Provide Employment',root_path %></li>
+            </div>
+            <div style="position:relative; top: -50px; left: -10px; z-index:5; display:inline;">
+              <li><%= link_to '  Support ',root_path %></li>
+            </div>
+          </ul>
 
-<%= yield %>
-
-</body>
+        </center>
+      </div>
+      <div id="imageBox">
+        <center><%= yield %></center>
+      </div>
+      <div id="bottomBanner">
+        <center><h6>    © 2011 Ashish Upadhyay. All rights reserved</h6></center>
+      </div>
+    </div>
+  </body>
 </html>

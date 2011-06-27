@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    render :text => "Hi there"
+    respond_to do |format|
+      format.html # index.haml
+      format.xml
+
+    end
   end
 end

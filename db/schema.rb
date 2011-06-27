@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20110504152939) do
   end
 
   create_table "slides", :force => true do |t|
-    t.binary "image", :limit => 10485760
+    t.binary "image", :limit => 16777215
   end
 
   create_table "users", :force => true do |t|
@@ -37,12 +37,6 @@ ActiveRecord::Schema.define(:version => 20110504152939) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "wows", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
