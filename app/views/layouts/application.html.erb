@@ -9,27 +9,27 @@
   <body>
     <div id="main">
       <div id="topBanner">
-        <center><%= image_tag "top_banner.gif" %></center>
+        <center><%= image_tag 'banner.png'%></center>
       </div>
       <div id="tabs">
         <center>
           <ul>
-            <div style="position:relative;display:inline">
+            <div style="position:relative; top: -50px; left: -80px; z-index:5; display:inline">
             <li><%= link_to 'Education',root_path %></li>
             </div>
-            <div style="position:relative;  display:inline">
+            <div style="position:relative; top: -70px; left: -60px; z-index:5; display:inline">
               <li><%= link_to 'Old-age Home',people_path %></li>
             </div>
-            <div style="position:relative; display:inline">
+            <div style="position:relative; top: -90px; left: -40px; z-index:5; display:inline">
               <li><%= link_to 'Orphanages',root_path %></li>
             </div>
-            <div style="position:relative;  display:inline">
+            <div style="position:relative; top: -90px; left: -20px; z-index:5; display:inline">
               <li><%= link_to 'Medical Facilities',root_path %></li>
             </div>
-            <div style="position:relative; display:inline">
+            <div style="position:relative; top: -70px; left: -15px; z-index:5; display:inline">
               <li><%= link_to 'Provide Employment',root_path %></li>
             </div>
-            <div style="position:relative; display:inline">
+            <div style="position:relative; top: -50px; left: -10px; z-index:5; display:inline">
               <li><%= link_to '  Support ',root_path %></li>
             </div>
           </ul>
