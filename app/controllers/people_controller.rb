@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
-  # GET /people
+ #test comment
+ # GET /people
   # GET /people.xml
   # GET /people.json
   def index
@@ -29,6 +30,7 @@ class PeopleController < ApplicationController
   end
 
   # GET /people/new
+
   # GET /people/new.xml
   def new
     @person = Person.new
