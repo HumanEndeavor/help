@@ -1,7 +1,7 @@
 class CreateTableSlides < ActiveRecord::Migration
   def self.up
     create_table :slides do |t|
-      t.binary :image, :limit => 10.megabyte
+      t.binary :image
     end
   end
 
