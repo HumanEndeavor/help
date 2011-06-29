@@ -11,32 +11,32 @@
       <div id="topBanner">
         <center><%= image_tag "top_banner.gif" %></center>
       </div>
-      <div id="tabs">
+      <div id="tabs" >
         <center>
           <ul>
-             <div style="position:relative; display:inline">
+             <div style="position:relative; display:inline;margin-left:-80px;">
             <li><%= link_to 'Education',root_path %></li>
             </div>
-             <div style="position:relative; display:inline">
+             <div style="position:relative; display:inline;margin-left:15px;">
               <li><%= link_to 'Old-age Home',people_path %></li>
             </div>
-             <div style="position:relative; display:inline">
+             <div style="position:relative; display:inline;margin-left:15px;">
               <li><%= link_to 'Orphanages',root_path %></li>
             </div>
-             <div style="position:relative; display:inline">
+             <div style="position:relative; display:inline;margin-left:15px;">
               <li><%= link_to 'Medical Facilities',root_path %></li>
             </div>
-             <div style="position:relative;display:inline">
+             <div style="position:relative;display:inline;margin-left:15px;">
               <li><%= link_to 'Provide Employment',root_path %></li>
             </div>
-             <div style="position:relative; display:inline">
+             <div style="position:relative; display:inline;margin-left:15px;">
               <li><%= link_to '  Support ',root_path %></li>
             </div>
           </ul>
 
         </center>
       </div>
-      <div id="imageBox">
+      <div id="imageBox" style="margin-top:20px;">
         <center><%= yield %></center>
       </div>
       <div id="bottomBanner">
