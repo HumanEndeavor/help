@@ -9,7 +9,7 @@ gem 'mysql'
 #gem 'mysql'#, "2.8.1", :platforms => [:mswin, :ruby_18]
 gem "paperclip", "~> 2.3"
 gem "scaffoldhub"
-gem "rake", "0.8.7"
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
