@@ -8,6 +8,8 @@ development:
   adapter: mysql
   database: db/db_development
   timeout: 5000
+  username: root
+  password: root
 
 
 
