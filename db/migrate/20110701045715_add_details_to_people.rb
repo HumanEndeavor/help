@@ -1,7 +1,8 @@
 class AddDetailsToPeople < ActiveRecord::Migration
   def self.up
-    add_column :people, :email_id, :string
+    add_column :people, :emailid, :string
     add_column :people, :state_id, :integer
+    add_column :people, :district_id, :integer
     add_column :people, :age, :integer
     add_column :people, :qualification, :string
     add_column :people, :job_status, :string

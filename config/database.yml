@@ -18,6 +18,10 @@ test:
   username: root
   password: root
 
+#configure for cucumber environment
+#cucumber:
+#  
+
 
 
 

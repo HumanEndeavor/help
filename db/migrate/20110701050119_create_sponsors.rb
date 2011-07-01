@@ -2,8 +2,9 @@ class CreateSponsors < ActiveRecord::Migration
   def self.up
     create_table :sponsors do |t|
       t.integer :name
-      t.string :email_id
+      t.string :emailid
       t.integer :state_id
+      add_column :people, :district_id, :integer
       t.integer :age
       t.string :qualification
       t.string :job_status
