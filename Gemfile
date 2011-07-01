@@ -12,10 +12,12 @@ gem "rack"
 gem "haml"
 gem "rake" , "0.8.7"
 gem 'will_paginate', '3.0.pre2' # still not release for Rails 3
-#
+
+
 group :development, :test do
   gem "rspec-rails", "2.0.1" 
 end
+
 
   #group :test, :cucumber do
   #  gem "faker"

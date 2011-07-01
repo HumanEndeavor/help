@@ -1,0 +1,14 @@
+<%= form_tag do |f| %>
+  
+<label> Select NGO: </label>
+<%= select_tag :ngo, @ngos %>
+
+<label> Select State: </label>
+<%= select_tag :state, @states %>
+
+<div class="actions">
+    <% submit_tag %>
+</div>
+
+<% end %>
+
