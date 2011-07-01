@@ -4,7 +4,7 @@ class CreateSponsors < ActiveRecord::Migration
       t.integer :name
       t.string :emailid
       t.integer :state_id
-      add_column :people, :district_id, :integer
+      t.integer :people, :district_id, :integer
       t.integer :age
       t.string :qualification
       t.string :job_status
