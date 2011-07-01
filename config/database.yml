@@ -9,7 +9,7 @@ development:
   database: help_development
   timeout: 5000
   username: root
-  password: root
+  password: 
 
 test:
   adapter: mysql
