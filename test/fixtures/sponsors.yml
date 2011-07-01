@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 1
+  email_id: MyString
+  state_id: 1
+  age: 1
+  qualification: MyString
+  job_status: MyString
+  sex: MyString
+  address: MyString
+  contact_number: 1
+  rural: false
+  photo_id: 1
+
+two:
+  name: 1
+  email_id: MyString
+  state_id: 1
+  age: 1
+  qualification: MyString
+  job_status: MyString
+  sex: MyString
+  address: MyString
+  contact_number: 1
+  rural: false
+  photo_id: 1

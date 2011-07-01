@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 
+  category_id: 
+  state_id: 
+  district_id: 1
+
+two:
+  name: 
+  category_id: 
+  state_id: 
+  district_id: 1

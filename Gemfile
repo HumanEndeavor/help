@@ -1,14 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+#gem 'mysql'
 #gem 'mysql'#, "2.8.1", :platforms => [:mswin, :ruby_18]
 gem "paperclip", "~> 2.3"
 gem "scaffoldhub"
+gem "rack"
+gem "haml"
 gem "rake" , "0.8.7"
 
 
