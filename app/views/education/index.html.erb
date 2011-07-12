@@ -5,14 +5,11 @@
 
 <%= render :partial => 'form'%>
 <div class="demo">
-
-<p>
-	<label for="amount">Select age range:</label>
-	<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
-</p>
-
-<div id="slider-range" style="height:250px;"></div>
-
+  <p>
+    <label for="age-range">Select age range:</label><span id="age-range" style="border:0; color:#f6931f; font-weight:bold;"></span>
+    <input type="hidden" id="lower_age"/><input type="hidden" id="upper_age"/>
+  </p>
+  <div id="age-range-slider" style="margin: 10 200 10 200;"></div>
 </div>
 
 
