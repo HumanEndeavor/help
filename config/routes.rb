@@ -3,6 +3,11 @@ Help::Application.routes.draw do
   resources :images
   resources :home
   resources :people
+  resources :ngos do
+    collection do
+      get :states
+    end
+  end
 
   match 'education' => 'education#index'
   # The priority is based upon order of creation:

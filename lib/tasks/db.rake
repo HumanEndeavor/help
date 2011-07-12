@@ -62,6 +62,15 @@ namespace :db do
     end
   end
 
+  desc "populate data in ngos table"
+  task :populate_ngos => [:environment] do
+    ["Ngo1", "Ngo2", "Ngo3"].each do |ngo|
+        Ngo.create(:name => ngo, :state_id => State.find_by_name("Maharashtra").id,
+        :district_id => District.find_by_name("Mumbai"),
+        :category_id => Category.find_by_name("education"))
+    end
+  end
+
   #  desc "Populate categories, states and distrcts table."
   #  task :load => [ :populate_categories, :populate_states, :populate_districts ]
 end
