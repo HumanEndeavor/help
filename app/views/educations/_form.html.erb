@@ -1,24 +1,13 @@
-<div>
-  <%= form_tag do |f| %>
+<% form_tag do |f| %>
+  
+<label> Select NGO: </label>
+<%= select_tag :ngo, options_for_select(options_for_ngos(@ngos)), :id => 'ngo_id' %>
 
-    <table class="ngotable">
-      <tr>
-        <td align="left"> Select NGO:</td>
-        <td align="left"><%= select_tag :ngo, @ngos,:default => "Select One"  %></td>
-      </tr>
+<div id="state">
+  <%= render :partial => 'ngos/states' %>
+</div>
 
-      <tr>
-        <td align="left">Select State: </td>
-        <td align="left"><%= select_tag :state, @states,:default => "Select One" %></td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table>
-    <br/>
-
-    <div class="infodiv">
+<div class="infodiv">
       <label>Exact Stats as of district or of lower level</label><br/>
       <label>no. indicates the number of people the NGO is serving in that district.</label>
 
@@ -53,19 +42,19 @@
           <div id="age-range-slider" style="margin: 10 200 10 200;"></div>
         </div>
       </div>
-
-
-    </div>
-
-    <div >
-
-    </div>
-
-
-    <div class="actions">
-      <% submit_tag %>
-    </div>
+<div class="actions">
+    <% submit_tag %>
 </div>
+<%end%>
 
 
 
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    jQuery('#ngo_id').change(function() {
+      var ngo = jQuery("#ngo_id").val();
+        jQuery('#state_spinner').show();
+        ajax_call_for_states(ngo, '<%= states_ngos_url%>');
+     });
+  });
+</script>
