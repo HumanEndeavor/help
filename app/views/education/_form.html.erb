@@ -1,0 +1,25 @@
+<% form_tag do |f| %>
+  
+<label> Select NGO: </label>
+<%= select_tag :ngo, options_for_select(options_for_ngos(@ngos)), :id => 'ngo_id' %>
+
+<div id="state">
+  <%= render :partial => 'ngos/states' %>
+</div>
+
+<div class="actions">
+    <% submit_tag %>
+</div>
+<%end%>
+
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    jQuery('#ngo_id').change(function() {
+      var ngo = jQuery("#ngo_id").val();
+        jQuery('#state_spinner').show();
+        ajax_call_for_states(ngo, '<%= states_ngos_url%>');
+     });
+  });
+</script>
