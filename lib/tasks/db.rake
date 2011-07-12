@@ -83,5 +83,5 @@ namespace :db do
   end
 
   #  desc "Populate categories, states and distrcts table."
-  #  task :load => [ :populate_categories, :populate_states, :populate_districts ]
+   task :load => [ :populate_categories, :populate_states, :populate_districts,:populate_ngos ]
 end
