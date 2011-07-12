@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
- #test comment
+ 
  # GET /people
   # GET /people.xml
   # GET /people.json
