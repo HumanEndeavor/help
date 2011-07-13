@@ -16,7 +16,7 @@ test:
   database: help_test
   timeout: 5000
   username: root
-  password: root
+  password:
 
 #configure for cucumber environment
 #cucumber:
