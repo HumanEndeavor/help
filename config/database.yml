@@ -9,14 +9,14 @@ development:
   database: help_development
   timeout: 5000
   username: root
-  password: root
+  password: 
 
 test:
   adapter: mysql
   database: help_test
   timeout: 5000
   username: root
-  password: root
+  password:
 
 #configure for cucumber environment
 #cucumber:

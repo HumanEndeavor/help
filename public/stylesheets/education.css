@@ -1,0 +1,35 @@
+/* 
+    Document   : education
+    Created on : Jul 12, 2011, 3:11:31 PM
+    Author     : Ankit Gupta-FIR
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.ngotable{
+    width: 75%;
+ }
+
+ .statstable{
+     border: 2px solid black;
+     width: 40%;
+}
+.infodiv{
+    padding-left: 0px;
+    text-align: left;
+   }
+
+.agediv{
+    position: relative;
+    display: inline;
+    width: 50%
+}

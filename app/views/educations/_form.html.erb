@@ -1,0 +1,82 @@
+<% form_tag do |f| %>
+
+  <table>
+    <tr>
+      <td>
+
+        <label> Select NGO: </label>&nbsp;&nbsp;
+        <%= select_tag :ngo, options_for_select(options_for_ngos(@ngos)), :id => 'ngo_id' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+        <div id="state">
+          <%= render :partial => 'ngos/states' %>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        <div class="infodiv">
+          <br/>
+          <label>Exact Stats as of district or of lower level</label><br/>
+          <label>no. indicates the number of people the NGO is serving in that district.</label>
+
+          <br/><br/>
+          <table class="statstable" border="">
+            <tr>
+              <td align="left"><%= link_to  "Mumbai","#" %></td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td align="left"><%= link_to  "Pune","#" %></td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+          <br/><br/>
+          <div>
+            <div style="position:relative;display:inline">
+              All Age Groups <input type="checkbox"/>
+            </div>
+            <div class="demo" style="position:relative;display:inline;margin-left:20px;">
+
+              <label for="age-range" >Select age range:</label><span id="age-range" style="border:0; color:#f6931f; font-weight:bold;"></span>
+              <input type="hidden" id="lower_age"/><input type="hidden" id="upper_age"/>
+              <div id="age-range-slider" style="margin: 10 200 10 200;"></div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+  <div class="actions">
+    <% submit_tag %>
+  </div>
+<%end%>
+
+
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery('#ngo_id').change(function() {
+      var ngo = jQuery("#ngo_id").val();
+      jQuery('#state_spinner').show();
+      ajax_call_for_states(ngo, '<%= states_ngos_url%>');
+    });
+  });
+</script>
