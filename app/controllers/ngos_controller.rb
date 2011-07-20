@@ -1,9 +1,7 @@
 class NgosController < ApplicationController
   def states
-    logger.info "====================="
-    logger.info Ngo.find(params['ngo']).states
-    logger.info params.inspect
-    @states = State.where(:ngo_id => params['ngo'])
+    state_id = Ngo.find(params['ngo']).state_id
+    @states = State.find(state_id)
     render :partial => 'states', :layout => false
   end
 end
