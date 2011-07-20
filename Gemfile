@@ -12,11 +12,16 @@ gem "scaffoldhub"
 gem "rack"
 gem "haml"
 gem "rake" , "0.8.7"
+gem "gmaps4rails", "~> 0.9.1"
 gem 'will_paginate', '3.0.pre2' # still not release for Rails 3
 
 
 group :development, :test do
   gem "rspec-rails", "2.0.1" 
+  gem "factory_girl_rails", "~> 1.1.rc1"
+  #gem 'cucumber-rails'
+  #gem 'database_cleaner'
+  gem 'capybara'
 end
 
 
