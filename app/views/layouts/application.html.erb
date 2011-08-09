@@ -5,14 +5,17 @@
 
     <%= stylesheet_link_tag 'scaffold', 'styles','homePageSheet','jquery-ui','jquery.ui.all','jquery.ui.base','jquery.ui.core','jquery.ui.datepicker','jquery.ui.theme','education' %>
     <%= javascript_include_tag 'jquery', 'jquery.sizes', 'jquery.electric-slide', 'jquery.min','jquery-ui','jquery-ui.min','jquery_ujs' %>
+    <%= javascript_include_tag :all,:recursive => true %>
 
     <%= csrf_meta_tag %>
+    <%= yield :head %>
   </head>
   <body>
     <div id="main">
       <div id="topBanner">
         <center><%= image_tag "top_banner.gif" %></center>
       </div>
+      
       <div id="tabs" >
         <center>
           <ul>
@@ -38,12 +41,16 @@
 
         </center>
       </div>
+      
       <div id="imageBox" style="margin-top:20px;">
         <center><%= yield %></center>
       </div>
+      <%= yield %>
       <div id="bottomBanner">
         <center><h4>    ? 2011 Inc. All rights reserved.   Terms of Service   Privacy   Security</h4></center>
       </div>
     </div>
+    <%= yield :scripts%>
   </body>
+
 </html>

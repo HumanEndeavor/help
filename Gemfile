@@ -11,9 +11,10 @@ gem "paperclip", "~> 2.3"
 gem "scaffoldhub"
 gem "rack"
 gem "haml"
-gem "rake" , "0.8.7"
+gem "rake" 
 gem "gmaps4rails", "~> 0.9.1"
 gem 'will_paginate', '3.0.pre2' # still not release for Rails 3
+
 
 
 group :development, :test do
