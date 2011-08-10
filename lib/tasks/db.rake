@@ -1,22 +1,22 @@
 namespace :db do
 
   desc "populate data in states table"
-    task :populate_states => [:environment] do
-      states = ["Andhra Pradesh","Arunachal Pradesh","Assam","Madhya pradesh","Maharashtra"]
-      states.each  do |st|
-        State.create(:name => st)
-      end
+  task :populate_states => [:environment] do
+    states = ["Andhra Pradesh","Arunachal Pradesh","Assam","Madhya pradesh","Maharashtra"]
+    states.each  do |st|
+      State.create(:name => st)
     end
+  end
 
   desc"populate details of people"
-    task :populate_people_details => [:environment] do
-      first_names = ["Amar", "Akbar", "Anthony"]
-      last_names = ["Shah", "Ali", "Gonzalves"]
-      qualifications = ["graduate", "post-graduate", "secondary pass"]
-      Person.create(:first_name => first_names[0], :last_name => last_names[0], :emailid => "#{first_names[0]}.#{last_names[0]}@gmail.com", :sex => 'M', :address => 'Raigad village happy, Maharashtra 402305',        :state_id => State.find_by_name("Maharashtra").id, :qualification => qualifications[0], :job_status => 'Working as a secondary school teacher', :rural => true, :district_id => District.find_by_name("Raigad").id,:age => 30, :ngo_id => 1)
-      Person.create(:first_name => first_names[1], :last_name => last_names[1], :emailid => "#{first_names[1]}.#{last_names[1]}@gmail.com", :sex => 'M', :address => 'Pune, Maharashtra 411027',        :state_id => State.find_by_name("Maharashtra").id, :qualification => qualifications[1], :job_status => 'Working as a college school teacher', :rural => false, :district_id => District.find_by_name("Pune").id,:age => 30, :ngo_id => 1)
-      Person.create(:first_name => first_names[2], :last_name => last_names[2], :emailid => "#{first_names[2]}.#{last_names[2]}@gmail.com", :sex => 'M', :address => 'Mumbai city, Maharashtra 400076',        :state_id => State.find_by_name("Maharashtra").id, :qualification => qualifications[2], :job_status => 'Working as a secondary school teacher', :rural => false, :district_id => District.find_by_name("Mumbai").id,:age => 30, :ngo_id => 1)
-    end
+  task :populate_people_details => [:environment] do
+    first_names = ["Amar", "Akbar", "Anthony"]
+    last_names = ["Shah", "Ali", "Gonzalves"]
+    qualifications = ["graduate", "post-graduate", "secondary pass"]
+    Person.create(:first_name => first_names[0], :last_name => last_names[0], :emailid => "#{first_names[0]}.#{last_names[0]}@gmail.com", :sex => 'M', :address => 'Raigad village happy, Maharashtra 402305',        :state_id => State.find_by_name("Maharashtra").id, :qualification => qualifications[0], :job_status => 'Working as a secondary school teacher', :rural => true, :district_id => District.find_by_name("Raigad").id,:age => 30, :ngo_id => 1)
+    Person.create(:first_name => first_names[1], :last_name => last_names[1], :emailid => "#{first_names[1]}.#{last_names[1]}@gmail.com", :sex => 'M', :address => 'Pune, Maharashtra 411027',        :state_id => State.find_by_name("Maharashtra").id, :qualification => qualifications[1], :job_status => 'Working as a college school teacher', :rural => false, :district_id => District.find_by_name("Pune").id,:age => 30, :ngo_id => 1)
+    Person.create(:first_name => first_names[2], :last_name => last_names[2], :emailid => "#{first_names[2]}.#{last_names[2]}@gmail.com", :sex => 'M', :address => 'Mumbai city, Maharashtra 400076',        :state_id => State.find_by_name("Maharashtra").id, :qualification => qualifications[2], :job_status => 'Working as a secondary school teacher', :rural => false, :district_id => District.find_by_name("Mumbai").id,:age => 30, :ngo_id => 1)
+  end
   
 
   #      ActiveRecord::Base.connection.execute('insert into states values
@@ -69,28 +69,28 @@ namespace :db do
   desc "populate data in districts table"
   task :populate_districts => [:environment] do
     ["Mumbai", "Pune", "Raigad"].each do |dist|
-        District.create(:name => dist, :state_id => State.find_by_name("Maharashtra").id)
+      District.create(:name => dist, :state_id => State.find_by_name("Maharashtra").id)
     end
   end
 
   desc "populate data in ngos table"
   task :populate_ngos => [:environment] do
     ["Ngo1", "Ngo2", "Ngo3"].each do |ngo|
-        Ngo.create(:name => ngo,
-#          :state_id => State.find_by_name("Maharashtra").id,
-      :district_id => District.find_by_name("Mumbai"))
-#        :category_id => Category.find_by_name("education"))
+      Ngo.create(:name => ngo,
+        :state_id => State.find_by_name("Maharashtra").id,
+        :district_id => District.find_by_name("Mumbai"),
+        :category_id => Category.find_by_name("education"))
     end
   end
 
-#
-#  desc "populate data in ngos_states table"
-#  task :populate_ngos_states => [:environment] do
-#
-#        NgoState.create(:state_id => State.find_by_name("Maharashtra").id,
-#        :ngo_id => Ngo.find_by_name('Ngo1'))
-#
-#  end
+  #
+  #  desc "populate data in ngos_states table"
+  #  task :populate_ngos_states => [:environment] do
+  #
+  #        NgoState.create(:state_id => State.find_by_name("Maharashtra").id,
+  #        :ngo_id => Ngo.find_by_name('Ngo1'))
+  #
+  #  end
   #  desc "Populate categories, states and distrcts table."
-   task :load => [ :populate_categories, :populate_states, :populate_districts,:populate_ngos ]
+  task :load => [ :populate_categories, :populate_states, :populate_districts,:populate_ngos ]
 end

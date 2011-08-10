@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110713103310) do
+ActiveRecord::Schema.define(:version => 20110810090020) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -43,7 +43,20 @@ ActiveRecord::Schema.define(:version => 20110713103310) do
 
   create_table "ngos", :force => true do |t|
     t.string   "name"
+    t.integer  "category_id"
+    t.integer  "state_id"
     t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "lattitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "address"
+  end
+
+  create_table "ngos_people", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "ngo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,20 +69,9 @@ ActiveRecord::Schema.define(:version => 20110713103310) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "emailid"
-    t.integer  "state_id"
-    t.integer  "district_id"
-    t.integer  "age"
-    t.string   "qualification"
-    t.string   "job_status"
-    t.string   "sex"
-    t.string   "address"
-    t.integer  "contact_number"
-    t.boolean  "rural"
-    t.integer  "photo_id"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.integer "ngo_id"
   end
 
   create_table "photos", :force => true do |t|

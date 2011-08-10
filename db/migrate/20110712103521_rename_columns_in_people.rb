@@ -2,8 +2,8 @@ class RenameColumnsInPeople < ActiveRecord::Migration
   def self.up
     add_column(:people, :first_name, :string)
     add_column(:people, :last_name, :string)
-    add_column(:people, :ngo_id, :id)
-    #remove_column(:people, :name)
+    add_column(:people, :ngo_id, :integer)
+    remove_column(:people, :name)
 
   end
 
