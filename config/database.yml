@@ -3,24 +3,22 @@
 #
 # Be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-
 development:
-  adapter: mysql
+  adapter: jdbcmysql
   database: help_development
   username: root
   password: 
 #
 #test:
-#  adapter: mysql
-#  database: help_test
-#  timeout: 5000
-#  username: root
-#  password:
-
-#configure for cucumber environment
-#cucumber:
-#  
-
-
-
-
+  adapter: jdbcmysql
+  database: help_test
+  username: root
+  password:
+#
+#production:
+  adapter: jdbcmysql
+  database: help_production
+  username: root
+  password:
+#
+#
