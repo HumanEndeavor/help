@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   belongs_to :district
 
   has_attached_file :photo
-
+  attr_accessor :photo_file_name
   def auto_complete_info(field)
     { "id" => id, "label" => send(field), "value" => send(field) }
   end

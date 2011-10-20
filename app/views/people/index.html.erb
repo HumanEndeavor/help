@@ -10,7 +10,7 @@
 
 <% @people.each do |person| %>
   <tr>
-    <td><%= person.name %></td>
+    <td><%= person.first_name %></td>
     <td><%= link_to 'Show', person %></td>
     <td><%= link_to 'Edit', edit_person_path(person) %></td>
     <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
