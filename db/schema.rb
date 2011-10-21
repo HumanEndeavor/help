@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810090020) do
+ActiveRecord::Schema.define(:version => 20111020150029) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20110810090020) do
     t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "lattitude"
+    t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
     t.string   "address"
@@ -69,9 +69,13 @@ ActiveRecord::Schema.define(:version => 20110810090020) do
   end
 
   create_table "people", :force => true do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.integer "ngo_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "ngo_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "photos", :force => true do |t|

@@ -1,12 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <b>Name:</b>
-  <%= @person.name %>
+  <%= @person.first_name %>
+  <b>LastName</b>
+  <%= @person.last_name %>
+  <b>Photo</b>
+  <%= image_tag @person.photo.url if @person.photo %>
 </p>
-<p>
-  <%= image_tag @person.photo.url %>
-</p>
+
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

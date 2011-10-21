@@ -4,21 +4,21 @@
 # Be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: jdbcmysql
+  adapter: mysql
   database: help_development
   username: root
   password: 
 #
 #test:
-  adapter: jdbcmysql
-  database: help_test
-  username: root
-  password:
+#  adapter: mysql
+#  database: help_test
+#  username: root
+#  password:
 #
 #production:
-  adapter: jdbcmysql
-  database: help_production
-  username: root
-  password:
+#  adapter: mysql
+#  database: help_production
+#  username: root
+#  password:
 #
 #

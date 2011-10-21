@@ -1,9 +1,10 @@
 Help::Application.routes.draw do
   resources :users
-  resources :images
+  #resources :images
   resources :home
   resources :people
   resources :ngos do
+  
     collection do
       get :states
     end
