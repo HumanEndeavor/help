@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
+#gem 'rails', '3.1'
 gem 'rails', '3.0.9'
-#rails 3.0.9
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -18,12 +19,15 @@ gem 'will_paginate', '3.0.pre2' # still not release for Rails 3
 
 
 
+
+
+
 group :development, :test do
   gem "rspec-rails", "2.0.1" 
   gem "factory_girl_rails", "~> 1.1.rc1"
   #gem 'cucumber-rails'
   #gem 'database_cleaner'
-  gem 'capybara'
+  #gem 'capybara'
 end
 
 
