@@ -8,6 +8,7 @@ class NgosController < ApplicationController
   def index
     @ngos = Ngo.all
     @json = Ngo.all.to_gmaps4rails
+    @categories = Category.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json => @ngos }
@@ -29,7 +30,7 @@ class NgosController < ApplicationController
   # GET /ngos/new.json
   def new
     @ngo = Ngo.new
-
+    @categories = Category.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json => @ngo }

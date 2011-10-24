@@ -8,5 +8,7 @@
   = f.label :longitude
   = f.text_field :longitude
 %p
+  = select_tag :category, options_for_select(options_for_ngos(@categories)), :id => 'category_id'
+%p
   = f.submit
   

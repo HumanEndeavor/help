@@ -1,7 +1,14 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 //= require jquery
+//= require jquery.min
+//= require jquery-ui
+//= require jquery-ui.min
 //= require education
+//= require_self
+//= require jquery.sizes
+//= require jquery_ujs
+//= require_tree .
 //= require jquery.electric-slide
 //= require gmaps4rails/gmaps4rails
 //= require gmaps4rails/bing
@@ -12,12 +19,6 @@
 //= require gmaps4rails/googlemaps
 //= require gmaps4rails/mapquest
 //= require gmaps4rails/openlayers
-//= require_self
-//= require jquery_ujs
-//= require_tree .
-
-
-
 
 jQuery(document).ready(function(){
     jQuery('input#education_search_id').live('click', function() {

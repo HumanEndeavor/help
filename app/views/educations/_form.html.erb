@@ -1,5 +1,4 @@
-<% form_tag do |f| %>
-
+<%= form_tag("/index", :method => "get") do  %>
   <table>
     <tr>
       <td>
@@ -51,9 +50,9 @@
             </div>
             <div class="demo" style="position:relative;display:inline;margin-left:20px;">
               <label for="age-range" >Select age range:</label><span id="age-range" style="border:0; color:#f6931f; font-weight:bold;"></span>
-              <%#*<input type="hidden" id="lower_age"/><input type="hidden" id="upper_age"/>%>
-              <%#*<div id="age-range-slider" style="margin: 10 200 10 200;"></div>%>
-              input_type=range  
+              <input type="hidden" id="lower_age"/><input type="hidden" id="upper_age"/>
+              <div id="age-range-slider" style="margin: 10 200 10 200;"></div>
+              <input type='range' max="5" min="1">
               <div><%#= render 'sponsored_child_photo' %></div>
             </div>
           </div>
