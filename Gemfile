@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-#gem 'rails', '3.1'
-gem 'rails', '3.0.9'
+gem 'rails', '3.1'
+#gem 'rails', '3.0.9'
 
 
 # Bundle edge Rails instead:
@@ -15,45 +15,18 @@ gem "haml"
 gem "rake", "~> 0.9.2"
 gem "gmaps4rails", "~> 0.9.1"
 gem 'will_paginate', '3.0.pre2' # still not release for Rails 3
+gem 'jquery-rails'
 
 
 group :development, :test do
-  gem "rspec-rails", "2.0.1" 
-  gem "factory_girl_rails", "~> 1.1.rc1"
-  #gem 'cucumber-rails'
-  #gem 'database_cleaner'
-  #gem 'capybara'
+  gem 'mysql'
+  gem "rspec-rails", "~> 2.6.1"
+  gem "factory_girl_rails"
 end
 
 
-  #group :test, :cucumber do
-  #  gem "faker"
-  #  gem "cucumber-rails"
-  #  gem "factory_girl_rails"
-  #  gem "shoulda"
-  #  gem "email_spec"
-  #end
-
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for the local environment. Make sure to
-# put test-only gems in this group so their generators
-# and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :assets do
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
