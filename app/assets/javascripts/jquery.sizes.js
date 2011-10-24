@@ -6,7 +6,7 @@
  * All rights reserved.
  */
 /*global jQuery*/
-(function ($) {
+(function (jQuery) {
 	var num = function (value) {
 			return parseInt(value, 10) || 0;
 		};
@@ -15,8 +15,8 @@
 	 * Sets or gets the values for min-width, min-height, max-width
 	 * and max-height.
 	 */
-	$.each(['min', 'max'], function (i, name) {
-		$.fn[name + 'Size'] = function (value) {
+	jQuery.each(['min', 'max'], function (i, name) {
+		jQuery.fn[name + 'Size'] = function (value) {
 			var width, height;
 			if (value) {
 				if (value.width !== undefined) {
@@ -42,15 +42,15 @@
 	/**
 	 * Returns whether or not an element is visible.
 	 */
-	$.fn.isVisible = function () {
+	jQuery.fn.isVisible = function () {
 		return this.is(':visible');
 	};
 
 	/**
 	 * Sets or gets the values for border, margin and padding.
 	 */
-	$.each(['border', 'margin', 'padding'], function (i, name) {
-		$.fn[name] = function (value) {
+	jQuery.each(['border', 'margin', 'padding'], function (i, name) {
+		jQuery.fn[name] = function (value) {
 			if (value) {
 				if (value.top !== undefined) {
 					this.css(name + '-top' + (name === 'border' ? '-width' : ''), value.top);

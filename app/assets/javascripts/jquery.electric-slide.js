@@ -1,6 +1,6 @@
-(function($) {
+(function(jQuery) {
 
-$.fn.electricSlide = function(options){
+jQuery.fn.electricSlide = function(options){
   /*
     In all of the functions defined in settings,
     "this" refers to the slide element.
@@ -33,8 +33,8 @@ $.fn.electricSlide = function(options){
     tocContainerSelector : "#table-of-contents",
 
     // show/hide 
-    showFunction         : function(){$(this).show()},
-    hideFunction         : function(){$(this).hide()},
+    showFunction         : function(){jQuery(this).show()},
+    hideFunction         : function(){jQuery(this).hide()},
 
     // callbacks
     slideShouldShow      : trueSlideFunction, 
@@ -49,17 +49,17 @@ $.fn.electricSlide = function(options){
     toggleSelector       : ".slide-toggle"
   }
 
-  $.extend(settings, options)
+  jQuery.extend(settings, options)
   settings.slideSelector = "." + settings.slideClass
   settings.slideHeaderSelector = "." + settings.slideHeaderClass
   settings.slideFooterSelector = "." + settings.slideFooterClass
   
   this.each(function(){
     var slideContainerElem   = this;
-    var slideContainer       = $(this);
-    var slides               = $(settings.slideSelector, slideContainer);
+    var slideContainer       = jQuery(this);
+    var slides               = jQuery(settings.slideSelector, slideContainer);
     var currentSlidePosition = 0;
-    var titles               = $(settings.slideSelector + " > " + settings.titleSelector);
+    var titles               = jQuery(settings.slideSelector + " > " + settings.titleSelector);
     var tocContainer; // table of contents container
     var tableOfContents;
     
@@ -75,17 +75,17 @@ $.fn.electricSlide = function(options){
     // That height is then used to set the height of the slide container
     // so that the page doesn't jump around when the user navigates the slides.
     function findMaxHeight(slideElem) {
-      var height = $(slideElem).height();
+      var height = jQuery(slideElem).height();
 
-      var margins = $(slideElem).margin();
+      var margins = jQuery(slideElem).margin();
       var topMargin = margins.top;
       var bottomMargin = margins.bottom;
 
-      var padding = $(slideElem).padding();
+      var padding = jQuery(slideElem).padding();
       var topPadding = padding.top;
       var bottomPadding = padding.bottom;
       
-      var border = $(slideElem).border();
+      var border = jQuery(slideElem).border();
       var topBorder = border.top;
       var bottomBorder = border.bottom;
       
@@ -149,7 +149,7 @@ $.fn.electricSlide = function(options){
       }
       
       oldSlide.willHide(oldSlidePosition, newSlidePosition);
-      $(oldSlide).stop();
+      jQuery(oldSlide).stop();
       oldSlide.hide(oldSlidePosition, newSlidePosition);
       oldSlide.didHide(oldSlidePosition, newSlidePosition);
 
@@ -199,25 +199,25 @@ $.fn.electricSlide = function(options){
      * Navigation HTML functions
      */
     function insertNavigation(slidePosition, slideElem){
-      var header = $("<div><div class='clear-slide-header'></div></div>'");
+      var header = jQuery("<div><div class='clear-slide-header'></div></div>'");
       var titleIndex;
       
       // TODO clean this confusing mess up
       // don't show next/previous if there is no next/previous
       if(slidePosition < maxSlidePosition()) {
         titleIndex = slidePosition + 1;
-        var nextElement = $(settings.nextHtml)
+        var nextElement = jQuery(settings.nextHtml)
         if(titles[titleIndex]) {
-          nextElement.text((titleIndex + 1) + ". " + $(titles[titleIndex]).text()) // replace link text with title of next slide
+          nextElement.text((titleIndex + 1) + ". " + jQuery(titles[titleIndex]).text()) // replace link text with title of next slide
         }
         header.prepend(nextElement);
       }
       
       if(slidePosition > 0) {
         titleIndex = slidePosition - 1;
-        var previousElement = $(settings.previousHtml)
+        var previousElement = jQuery(settings.previousHtml)
         if(titles[titleIndex]) {
-          previousElement.text((titleIndex + 1) + ". " + $(titles[titleIndex]).text()) // replace link text with title of prev slide
+          previousElement.text((titleIndex + 1) + ". " + jQuery(titles[titleIndex]).text()) // replace link text with title of prev slide
         }
         header.prepend(previousElement)
       }
@@ -225,27 +225,27 @@ $.fn.electricSlide = function(options){
       if(settings.shouldInsertFooter) {
         var footer = header.clone();
         footer.addClass(settings.slideFooterClass)
-        $(slideElem).append(footer)
+        jQuery(slideElem).append(footer)
       }
       
       if(settings.shouldInsertHeader) {
         header.addClass(settings.slideHeaderClass)
-        $(slideElem).prepend(header)
+        jQuery(slideElem).prepend(header)
       }
       
-      $(".slide-navigation.next", slideElem).click(showNextSlide)
-      $(".slide-navigation.previous", slideElem).click(showPreviousSlide)
+      jQuery(".slide-navigation.next", slideElem).click(showNextSlide)
+      jQuery(".slide-navigation.previous", slideElem).click(showPreviousSlide)
     }
     
     // TODO allow users to provide their own function for generating the toc
     function generateToc() {
-      tocContainer = $(settings.tocContainerSelector)
+      tocContainer = jQuery(settings.tocContainerSelector)
 
-      tableOfContents = $("<ol class='slide-toc'></ol>")
+      tableOfContents = jQuery("<ol class='slide-toc'></ol>")
 
       titles.each(function(i){
-        line = $("<li><a href='#slide-" + i + "'>" + $(this).text() + "</a></li>")
-        $("a", line).click(function(){showSlide(i)}) // could optimize this
+        line = jQuery("<li><a href='#slide-" + i + "'>" + jQuery(this).text() + "</a></li>")
+        jQuery("a", line).click(function(){showSlide(i)}) // could optimize this
         tableOfContents.append(line)
       })
 
@@ -263,14 +263,14 @@ $.fn.electricSlide = function(options){
     function expandAll() {
       slides.show()
       slides.children(settings.slideHeaderSelector + "," + settings.slideFooterSelector).hide()
-      slideContainer.animate({height:$(".track", slideContainer).height()})
+      slideContainer.animate({height:jQuery(".track", slideContainer).height()})
       return false;
     }
     
     function collapseAll() {
       slides.children(settings.slideHeaderSelector + "," + settings.slideFooterSelector).show()
       slides.hide()
-      $(slides[0]).show()
+      jQuery(slides[0]).show()
       resetDimensions(400)
       return false;
     }
@@ -299,7 +299,7 @@ $.fn.electricSlide = function(options){
       findMaxHeight(this);
 
       if(i == 0) {
-        $(this).show();
+        jQuery(this).show();
       }
 
       this.electricSlide = electricSlide;
@@ -316,7 +316,7 @@ $.fn.electricSlide = function(options){
     // setup dimensions - needs to happen after slides are set up
     // to account for navigation being inserted
     setSlideContainerHeight();
-    $(window).resize(resetDimensions)
+    jQuery(window).resize(resetDimensions)
     
     // generate the TOC
     if(settings.buildToc) generateToc();
@@ -324,7 +324,7 @@ $.fn.electricSlide = function(options){
     
     // Let's turn this off for now - it's a bit unintuitive
     // slideContainer.click(clickMove)
-    $(settings.toggleSelector, this).toggle(expandAll, collapseAll)
+    jQuery(settings.toggleSelector, this).toggle(expandAll, collapseAll)
     
   }); // end this.each
   return this;
