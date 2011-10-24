@@ -1,0 +1,35 @@
+/* 
+  Very weird: for some reason when jquery is computing heights
+  it doesn't correctly accommodate the height of the interior p element
+  except when the containing slide is not displayed
+*/
+.slide {
+    display:none;
+}
+
+.clear-slide-header {
+    clear:both;
+}
+
+body {
+    background:#EEEEDD;
+}
+.slide {
+    display:none;
+}
+#slides .slide-header {
+    display: none
+}
+#slides .slide-footer {
+    margin:0;
+    width: 200px;
+}
+.slide-footer .previous {
+    width:75px;
+    float:left;
+}
+.slide-footer .next {
+    width:75px;
+    float:right;
+    text-align:right;
+}

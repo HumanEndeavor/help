@@ -31,5 +31,10 @@ Help::Application.configure do
   # config.active_record.schema_format = :sql
 
   # Print deprecation notices to the stderr
-  config.active_support.deprecation = :stderr
+config.serve_static_assets = true
+config.static_cache_control = "public, max-age=3600"
+
+# This config option was shown in the episode but is actually not used, so don't bother adding it.
+# config.assets.allow_debugging = true
+
 end

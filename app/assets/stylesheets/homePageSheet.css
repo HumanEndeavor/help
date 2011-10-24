@@ -1,0 +1,107 @@
+/* 
+    Document   : homePageSheet
+    Created on : Jun 22, 2011, 6:10:36 PM
+    Author     : Ankit Gupta-FIR
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+
+
+}
+#main
+{
+    height:960px;
+    width:1260px;
+   
+}
+#topBanner
+{
+    height:193x;
+    width:939px;
+    margin-left: 130px;
+ }
+#tabs
+{
+    height:40px;
+    width:700px;
+    margin-left: 290px;
+    margin-top: 10px;
+ }
+#imageBox
+{
+    height:700px;
+    width:800px;
+    margin-left: 200px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    margin-top: 3px;
+    background-color: whitesmoke;
+    padding : 2px 2px 2px 2px;
+  -moz-box-shadow: 0 0 20px black, 20px 15px 30px yellow, -20px 15px 30px lime, -20px -15px 30px blue, 20px -15px 30px red;
+}
+#bottomBanner
+{
+    height:60px;
+    width:1240px;
+    margin-left:10px;
+    margin-top: 50px;
+      -moz-box-shadow: 1px 1px 10px grey;
+}
+#tabs ul
+{
+    float: left;
+
+}
+#tabs ul li
+{
+    position: relative;
+    display: inline;
+    background-color:burlywood;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 5px;
+   -moz-box-shadow: 1px 1px 10px grey;
+}
+#tabs ul li:hover
+{
+    background-color: Yellow;
+    padding-bottom: 2.5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 2.5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+}
+#tabs ul li a
+{
+    text-decoration:none;
+    text-shadow: .7px .7px .7px #000;
+}
+#tabs ul li a:hover
+{
+    background-color: Yellow;
+    color : Black;
+}
+#image1
+{
+    position: relative;
+    display:inline;
+    height:200px;
+    width:300px;
+}
+#image2
+{
+    margin-left: 50px;
+    position: relative;
+    display:inline;
+    height:200px;
+    width:300px;
+}
