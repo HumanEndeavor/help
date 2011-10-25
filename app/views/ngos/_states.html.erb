@@ -1,0 +1,3 @@
+<label for="state">Select State:</label>&nbsp;
+  <%=select_tag :state, options_for_select(options_for_states(@states)), :id => "state_id"%>
+  <%=image_tag "/images/small_spinner.gif", :id => 'state_spinner', :style => "display:none;"%>

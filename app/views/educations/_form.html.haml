@@ -1,0 +1,59 @@
+= form_tag("/index", :method => "get") do
+  %table
+    %tr
+      %td
+        %label> Select NGO:
+        \  
+        \#{select_tag :ngo, options_for_select(options_for_ngos(@ngos)), :id => 'ngo_id'}
+    %tr
+      %td
+        #state
+          = render :partial => 'ngos/states'
+          = javascript_include_tag 'gmaps4rails/bing.js', 'gmaps4rails/gmaps4rails.googlemaps.js', 'gmaps4rails/mapquest.js', 'gmaps4rails/openlayers.js', 'gmaps4rails/all_apis.js'
+          = gmaps4rails(@json)
+    %tr
+      %td
+        .infodiv
+          %br/
+          %label Exact Stats as of district or of lower level
+          %br/
+          %label no. indicates the number of people the NGO is serving in that district.
+          %br/
+          %br/
+          %table.statstable{:border => ""}
+            %tr
+              %td{:align => "left"}= link_to  "Mumbai","#"
+              %td 60
+            %tr
+              %td{:align => "left"}= link_to  "Pune","#"
+              %td 30
+            %tr
+              %td  
+              %td  
+            %tr
+              %td  
+              %td  
+          %br/
+          %br/
+          %div
+            %div{:style => "position:relative;display:inline"}
+              All Age Groups
+              %input{:type => "checkbox"}/
+            .demo{:style => "position:relative;display:inline;margin-left:20px;"}
+              %label{:for => "age-range"} Select age range:
+              %span#age-range{:style => "border:0; color:#f6931f; font-weight:bold;"}
+              %input#lower_age{:type => "hidden"}/
+              %input#upper_age{:type => "hidden"}/
+              #age-range-slider{:style => "margin: 10 200 10 200;"}
+              %input{:max => "5", :min => "1", :type => "range"}
+                = render :partial => 'layouts/people_photo_slider', :locals => {:people => @people}
+  .actions
+    - submit_tag
+:javascript
+  jQuery(document).ready(function(){
+    jQuery('#ngo_id').change(function() {
+      var ngo = jQuery("#ngo_id").val();
+      jQuery('#state_spinner').show();
+      ajax_call_for_states(ngo, ' states_ngos_url');
+    });
+  });
