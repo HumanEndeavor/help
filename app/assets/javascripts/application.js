@@ -11,15 +11,14 @@
 //= require_tree .
 //= require jquery.electric-slide
 //= require gmaps4rails/bing.js
-//= require gmaps4rails/googlemaps.js
+
+//= require gmaps4rails/gmaps4rails.googlemaps.js
+
 //= require gmaps4rails/mapquest.js
+
 //= require gmaps4rails/openlayers.js
+
 //= require gmaps4rails/all_apis.js
-
-
-//= require gmaps4rails/googlemaps
-//= require gmaps4rails/mapquest
-//= require gmaps4rails/openlayers
 
 jQuery(document).ready(function(){
     jQuery('input#education_search_id').live('click', function() {

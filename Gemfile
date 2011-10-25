@@ -16,6 +16,7 @@ gem "rake", "~> 0.9.2"
 gem 'gmaps4rails'
 gem 'will_paginate', '3.0.pre2' # still not release for Rails 3
 gem 'jquery-rails'
+gem "json", "1.5.3"
 
 
 group :development, :test do
