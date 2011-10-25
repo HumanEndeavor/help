@@ -1,0 +1,14 @@
+= javascript_include_tag 'jquery.1.6.4.min', 'jquery.slideviewer.1.2', 'jquery.easing.1.3.js'
+#mygallary.svw
+  %ul
+    - people.each do |person|
+      %li
+      = image_tag person.photo.url
+              
+:javascript
+  $(window).bind("load", function() {
+  $("#mygallary").slideView({
+  ttOpacity: 0.5,
+  toolTip: true
+  })
+  })

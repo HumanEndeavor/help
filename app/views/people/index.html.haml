@@ -1,0 +1,4 @@
+%h1 Listing people
+= render :partial => 'layouts/people_photo_slider', :locals => {:people => @people }
+%br/
+= link_to 'New Person', new_person_path
