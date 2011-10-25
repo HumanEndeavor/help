@@ -3,11 +3,14 @@
   %ul
     - people.each do |person|
       %li
-      = image_tag person.photo.url
+        = image_tag person.photo.url
               
 :javascript
   $(window).bind("load", function() {
   $("#mygallary").slideView({
+  easeFunc: "easeInOutSine",
+  easeTime: 500,
+  uiBefore: true, //you can optionally draw the ui before the slider's images
   ttOpacity: 0.5,
   toolTip: true
   })
