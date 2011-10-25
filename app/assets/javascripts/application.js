@@ -10,12 +10,13 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery.electric-slide
-//= require gmaps4rails/gmaps4rails
-//= require gmaps4rails/bing
-//= require gmaps4rails/gmaps4rails.bing
-//= require gmaps4rails/gmaps4rails.base
-//= require gmaps4rails/gmaps4rails.mapquest
-//= require gmaps4rails/gmaps4rails.openlayers
+//= require gmaps4rails/bing.js
+//= require gmaps4rails/googlemaps.js
+//= require gmaps4rails/mapquest.js
+//= require gmaps4rails/openlayers.js
+//= require gmaps4rails/all_apis.js
+
+
 //= require gmaps4rails/googlemaps
 //= require gmaps4rails/mapquest
 //= require gmaps4rails/openlayers

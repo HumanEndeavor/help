@@ -1,0 +1,3 @@
+%p
+  %label Select State:
+  ={select_tag :state, options_for_select(options_for_states(@states)), :id => "state_id"} #{image_tag 'small_spinner.gif', :id => 'state_spinner', :style => "display:none;"}

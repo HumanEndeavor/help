@@ -1,195 +1,191 @@
-Gmaps4Rails.map_options.type =  "road";             // aerial, auto, birdseye, collinsBart, mercator, ordnanceSurvey, road
-Gmaps4Rails.markers_conf.infobox =  "description";  // description or htmlContent
-
-////////////////////////////////////////////////////
-/////////////// Basic Objects         //////////////
-////////////////////////////////////////////////////
-
-Gmaps4Rails.getMapType = function(){
-  switch(Gmaps4Rails.map_options.type)
-  {
-  case "road":
-    return Microsoft.Maps.MapTypeId.road;
-  case "aerial":
-    return Microsoft.Maps.MapTypeId.aerial;
-  case "auto":
-    return Microsoft.Maps.MapTypeId.auto;
-  case "birdseye":
-    return Microsoft.Maps.MapTypeId.birdseye;
-  case "collinsBart":
-    return Microsoft.Maps.MapTypeId.collinsBart;
-  case "mercator":
-    return Microsoft.Maps.MapTypeId.mercator;
-  case "ordnanceSurvey":
-    return Microsoft.Maps.MapTypeId.ordnanceSurvey;
-  default:
-    return Microsoft.Maps.MapTypeId.auto;
-  }
-};
-
-Gmaps4Rails.createPoint = function(lat, lng){
-  return new Microsoft.Maps.Point(lat, lng);
-};
-
-Gmaps4Rails.createLatLng = function(lat, lng){
-  return new Microsoft.Maps.Location(lat, lng);
-};
-
-Gmaps4Rails.createLatLngBounds = function(){
-
-};
-
-Gmaps4Rails.createMap = function(){
-  return new Microsoft.Maps.Map(document.getElementById(Gmaps4Rails.map_options.id), { 
-    credentials:  Gmaps4Rails.map_options.provider_key,
-    mapTypeId:    Gmaps4Rails.getMapType(),
-    center:       Gmaps4Rails.createLatLng(Gmaps4Rails.map_options.center_latitude, Gmaps4Rails.map_options.center_longitude),
-    zoom:         Gmaps4Rails.map_options.zoom
- });
-};
-
-Gmaps4Rails.createSize = function(width, height){
-  return new google.maps.Size(width, height);
-};
-
-////////////////////////////////////////////////////
-////////////////////// Markers /////////////////////
-////////////////////////////////////////////////////
-
-Gmaps4Rails.createMarker = function(args){
-  var markerLatLng = Gmaps4Rails.createLatLng(args.Lat, args.Lng); 
-  var marker;
-  // Marker sizes are expressed as a Size of X,Y
-  if (args.marker_picture === "" ) { 
-    marker = new Microsoft.Maps.Pushpin(Gmaps4Rails.createLatLng(args.Lat, args.Lng), {
-     draggable: args.marker_draggable,
-     anchor:    Gmaps4Rails.createImageAnchorPosition(args.Lat, args.Lng),
-     text:      args.marker_title
-     }
-    );
-  } else {
-    marker = new Microsoft.Maps.Pushpin(Gmaps4Rails.createLatLng(args.Lat, args.Lng), {
-     draggable: args.marker_draggable,
-     anchor:    Gmaps4Rails.createImageAnchorPosition(args.Lat, args.Lng),
-     icon:      args.marker_picture,
-     height:    args.marker_height,
-     text:      args.marker_title,
-     width:     args.marker_width
-     }
-    );
-   }
-  Gmaps4Rails.addToMap(marker);
-  return marker;
-};
-
-// clear markers
-Gmaps4Rails.clearMarkers = function() {  
-  for (var i = 0; i < this.markers.length; ++i) {
-    this.clearMarker(this.markers[i]);
-  }
-};
-
-Gmaps4Rails.clearMarker = function(marker) {
-  this.removeFromMap(marker.serviceObject);
-};
-
-//show and hide markers
-Gmaps4Rails.showMarkers = function() {
-  for (var i = 0; i < this.markers.length; ++i) {
-    this.showMarker(this.markers[i]);
-  }
-};
-
-Gmaps4Rails.showMarker = function(marker) {
-  marker.serviceObject.setOptions({ visible: true });
-};
-
-Gmaps4Rails.hideMarkers = function() {
-  for (var i = 0; i < this.markers.length; ++i) {
-    this.hideMarker(this.markers[i]);
-  }
-};
-
-Gmaps4Rails.hideMarker = function(marker) {
-  marker.serviceObject.setOptions({ visible: false });
-};
-
-Gmaps4Rails.extendBoundsWithMarkers = function(){
-  var locationsArray = [];
-  for (var i = 0; i <  this.markers.length; ++i) {
-    locationsArray.push(Gmaps4Rails.markers[i].serviceObject.getLocation());        
-  } 
-  Gmaps4Rails.boundsObject = Microsoft.Maps.LocationRect.fromLocations(locationsArray);
-};
-
-
-////////////////////////////////////////////////////
-/////////////////// Clusterer //////////////////////
-////////////////////////////////////////////////////
-
-Gmaps4Rails.createClusterer = function(markers_array){
-
-};
-
-Gmaps4Rails.clearClusterer = function() {
-};
-
-//creates clusters
-Gmaps4Rails.clusterize = function()
-{
-
-};
-
-////////////////////////////////////////////////////
-/////////////////// INFO WINDOW ////////////////////
-////////////////////////////////////////////////////
-
-// creates infowindows
-Gmaps4Rails.createInfoWindow = function(marker_container){
-  var info_window;
-  if (Gmaps4Rails.exists(marker_container.description)) {
-    //create the infowindow
-    if (Gmaps4Rails.markers_conf.infobox == "description") {
-      marker_container.info_window = new Microsoft.Maps.Infobox(marker_container.serviceObject.getLocation(), { description: marker_container.description, visible: false, showCloseButton: true});  
+(function() {
+  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
+    for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
+    function ctor() { this.constructor = child; }
+    ctor.prototype = parent.prototype;
+    child.prototype = new ctor;
+    child.__super__ = parent.prototype;
+    return child;
+  };
+  this.Gmaps4RailsBing = (function() {
+    __extends(Gmaps4RailsBing, Gmaps4Rails);
+    function Gmaps4RailsBing() {
+      Gmaps4RailsBing.__super__.constructor.apply(this, arguments);
+      this.map_options = {
+        type: "road"
+      };
+      this.markers_conf = {
+        infobox: "description"
+      };
+      this.mergeWithDefault("map_options");
+      this.mergeWithDefault("markers_conf");
     }
-    else {
-      marker_container.info_window = new Microsoft.Maps.Infobox(marker_container.serviceObject.getLocation(), { htmlContent: marker_container.description, visible: false});
-    }
-                                     
-    //add the listener associated
-    Microsoft.Maps.Events.addHandler(marker_container.serviceObject, 'click', Gmaps4Rails.openInfoWindow(marker_container.info_window));
-    Gmaps4Rails.addToMap(marker_container.info_window);
-  }
-};
-
-Gmaps4Rails.openInfoWindow = function(infoWindow) {
-  return function() {
-      // Close the latest selected marker before opening the current one.
-      if (Gmaps4Rails.visibleInfoWindow) {
-        Gmaps4Rails.visibleInfoWindow.setOptions({ visible: false });
+    Gmaps4RailsBing.prototype.getMapType = function() {
+      switch (this.map_options.type) {
+        case "road":
+          return Microsoft.Maps.MapTypeId.road;
+        case "aerial":
+          return Microsoft.Maps.MapTypeId.aerial;
+        case "auto":
+          return Microsoft.Maps.MapTypeId.auto;
+        case "birdseye":
+          return Microsoft.Maps.MapTypeId.birdseye;
+        case "collinsBart":
+          return Microsoft.Maps.MapTypeId.collinsBart;
+        case "mercator":
+          return Microsoft.Maps.MapTypeId.mercator;
+        case "ordnanceSurvey":
+          return Microsoft.Maps.MapTypeId.ordnanceSurvey;
+        default:
+          return Microsoft.Maps.MapTypeId.auto;
       }
-      infoWindow.setOptions({ visible:true });
-      Gmaps4Rails.visibleInfoWindow = infoWindow;
     };
-};
-
-////////////////////////////////////////////////////
-/////////////////// Other methods //////////////////
-////////////////////////////////////////////////////
-
-Gmaps4Rails.fitBounds = function(){
-  Gmaps4Rails.map.setView({bounds: Gmaps4Rails.boundsObject});
-};
-
-Gmaps4Rails.addToMap = function(object){
-  Gmaps4Rails.map.entities.push(object);
-};
-
-Gmaps4Rails.removeFromMap = function(object){
-  console.log(object);
-  Gmaps4Rails.map.entities.remove(object);
-};
-
-Gmaps4Rails.centerMapOnUser = function(){
-  Gmaps4Rails.map.setView({ center: Gmaps4Rails.userLocation});
-};
+    Gmaps4RailsBing.prototype.createPoint = function(lat, lng) {
+      return new Microsoft.Maps.Point(lat, lng);
+    };
+    Gmaps4RailsBing.prototype.createLatLng = function(lat, lng) {
+      return new Microsoft.Maps.Location(lat, lng);
+    };
+    Gmaps4RailsBing.prototype.createLatLngBounds = function() {};
+    Gmaps4RailsBing.prototype.createMap = function() {
+      return new Microsoft.Maps.Map(document.getElementById(this.map_options.id), {
+        credentials: this.map_options.provider_key,
+        mapTypeId: this.getMapType(),
+        center: this.createLatLng(this.map_options.center_latitude, this.map_options.center_longitude),
+        zoom: this.map_options.zoom
+      });
+    };
+    Gmaps4RailsBing.prototype.createSize = function(width, height) {
+      return new google.maps.Size(width, height);
+    };
+    Gmaps4RailsBing.prototype.createMarker = function(args) {
+      var marker, markerLatLng;
+      markerLatLng = this.createLatLng(args.Lat, args.Lng);
+      marker;
+      if (args.marker_picture === "") {
+        marker = new Microsoft.Maps.Pushpin(this.createLatLng(args.Lat, args.Lng), {
+          draggable: args.marker_draggable,
+          anchor: this.createImageAnchorPosition(args.Lat, args.Lng),
+          text: args.marker_title
+        });
+      } else {
+        marker = new Microsoft.Maps.Pushpin(this.createLatLng(args.Lat, args.Lng), {
+          draggable: args.marker_draggable,
+          anchor: this.createImageAnchorPosition(args.Lat, args.Lng),
+          icon: args.marker_picture,
+          height: args.marker_height,
+          text: args.marker_title,
+          width: args.marker_width
+        });
+      }
+      this.addToMap(marker);
+      return marker;
+    };
+    Gmaps4RailsBing.prototype.clearMarkers = function() {
+      var marker, _i, _len, _ref, _results;
+      _ref = this.markers;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        marker = _ref[_i];
+        _results.push(this.clearMarker(marker));
+      }
+      return _results;
+    };
+    Gmaps4RailsBing.prototype.clearMarker = function(marker) {
+      return this.removeFromMap(marker.serviceObject);
+    };
+    Gmaps4RailsBing.prototype.showMarkers = function() {
+      var marker, _i, _len, _ref, _results;
+      _ref = this.markers;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        marker = _ref[_i];
+        _results.push(this.showMarker(marker));
+      }
+      return _results;
+    };
+    Gmaps4RailsBing.prototype.showMarker = function(marker) {
+      return marker.serviceObject.setOptions({
+        visible: true
+      });
+    };
+    Gmaps4RailsBing.prototype.hideMarkers = function() {
+      var marker, _i, _len, _ref, _results;
+      _ref = this.markers;
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        marker = _ref[_i];
+        _results.push(this.hideMarker(marker));
+      }
+      return _results;
+    };
+    Gmaps4RailsBing.prototype.hideMarker = function(marker) {
+      return marker.serviceObject.setOptions({
+        visible: false
+      });
+    };
+    Gmaps4RailsBing.prototype.extendBoundsWithMarkers = function() {
+      var locationsArray, marker, _i, _len, _ref;
+      locationsArray = [];
+      _ref = this.markers;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        marker = _ref[_i];
+        locationsArray.push(marker.serviceObject.getLocation());
+      }
+      return this.boundsObject = Microsoft.Maps.LocationRect.fromLocations(locationsArray);
+    };
+    Gmaps4RailsBing.prototype.createClusterer = function(markers_array) {};
+    Gmaps4RailsBing.prototype.clearClusterer = function() {};
+    Gmaps4RailsBing.prototype.clusterize = function() {};
+    Gmaps4RailsBing.prototype.createInfoWindow = function(marker_container) {
+      var currentMap;
+      if (marker_container.description != null) {
+        if (this.markers_conf.infobox === "description") {
+          marker_container.info_window = new Microsoft.Maps.Infobox(marker_container.serviceObject.getLocation(), {
+            description: marker_container.description,
+            visible: false,
+            showCloseButton: true
+          });
+        } else {
+          marker_container.info_window = new Microsoft.Maps.Infobox(marker_container.serviceObject.getLocation(), {
+            htmlContent: marker_container.description,
+            visible: false
+          });
+        }
+        currentMap = this;
+        Microsoft.Maps.Events.addHandler(marker_container.serviceObject, 'click', this.openInfoWindow(currentMap, marker_container.info_window));
+        return this.addToMap(marker_container.info_window);
+      }
+    };
+    Gmaps4RailsBing.prototype.openInfoWindow = function(currentMap, infoWindow) {
+      return function() {
+        if (currentMap.visibleInfoWindow) {
+          currentMap.visibleInfoWindow.setOptions({
+            visible: false
+          });
+        }
+        infoWindow.setOptions({
+          visible: true
+        });
+        return currentMap.visibleInfoWindow = infoWindow;
+      };
+    };
+    Gmaps4RailsBing.prototype.fitBounds = function() {
+      return this.map.setView({
+        bounds: this.boundsObject
+      });
+    };
+    Gmaps4RailsBing.prototype.addToMap = function(object) {
+      return this.map.entities.push(object);
+    };
+    Gmaps4RailsBing.prototype.removeFromMap = function(object) {
+      return this.map.entities.remove(object);
+    };
+    Gmaps4RailsBing.prototype.centerMapOnUser = function() {
+      return this.map.setView({
+        center: this.userLocation
+      });
+    };
+    return Gmaps4RailsBing;
+  })();
+}).call(this);

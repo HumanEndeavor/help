@@ -1,6 +1,6 @@
 %h1
   New Ngo
-  - form_for @ngo do |f|
+  = form_for @ngo do |f|
     = render :partial => 'ngos/form.html.haml', :locals => { :f => f }
     = f.submit 'Create'
 

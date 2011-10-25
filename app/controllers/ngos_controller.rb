@@ -9,6 +9,7 @@ class NgosController < ApplicationController
     @ngos = Ngo.all
     @json = Ngo.all.to_gmaps4rails
     @categories = Category.all
+    Rails.logger.info "-------index--------#{@json.inspect}"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json => @ngos }
@@ -31,6 +32,7 @@ class NgosController < ApplicationController
   def new
     @ngo = Ngo.new
     @categories = Category.all
+        Rails.logger.info "-------new--------#{@json.inspect}"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json => @ngo }
@@ -46,7 +48,7 @@ class NgosController < ApplicationController
   # POST /ngos.json
   def create
     @ngo = Ngo.new(params[:ngo])
-
+    Rails.logger.info "-------create--------#{@json.inspect}"
     respond_to do |format|
       if @ngo.save
         format.html { redirect_to @ngo, notice => 'Ngo was successfully created.' }
