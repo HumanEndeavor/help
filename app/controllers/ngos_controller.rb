@@ -9,7 +9,6 @@ class NgosController < ApplicationController
     @ngos = Ngo.all
     @json = Ngo.all.to_gmaps4rails
     @categories = Category.all
-    Rails.logger.info "-------index--------#{@json.inspect}"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json => @ngos }

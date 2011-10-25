@@ -22,9 +22,7 @@
             %li= link_to 'Provide Employment',root_path
           %div{:style => "position:relative; display:inline;margin-left:15px;"}
             %li= link_to '  Support ',root_path
-    #imageBox{:style => "margin-top:20px;"}
-      %center= yield
-    #bottomBanner
-      %center
-        %h4 ? 2011 Inc. All rights reserved.   Terms of Service   Privacy   Security
-    = content_for :scripts
+    %center= yield
+    %center= yield :scripts
+    
+    
