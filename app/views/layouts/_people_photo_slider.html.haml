@@ -3,7 +3,8 @@
   %ul
     - people.each do |person|
       %li
-        = image_tag person.photo.url
+        = image_tag(person.photo.url)
+          
               
 :javascript
   $(window).bind("load", function() {
@@ -14,4 +15,6 @@
   ttOpacity: 0.5,
   toolTip: true
   })
+  var child =   $("#mygallary").val();
+  get_children_details(child);
   })

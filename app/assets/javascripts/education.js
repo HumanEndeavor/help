@@ -37,3 +37,6 @@ function ajax_call_for_states(ngo, states_url)     {
   });
 }
 
+function get_children_details(){
+
+}

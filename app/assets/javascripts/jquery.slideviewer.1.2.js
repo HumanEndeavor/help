@@ -14,7 +14,7 @@
  */
 
 jQuery(function(){
-   jQuery("div.svw").prepend("<img src='spinner.gif' class='ldrgif' alt='loading...'/ >");
+   jQuery("div.svw").prepend("<img src='images/small_spinner.gif' class='ldrgif' alt='loading...'/ >");
 });
 var j = 0;
 var quantofamo = 0;
