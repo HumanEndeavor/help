@@ -15,10 +15,10 @@ development:
 #  username: root
 #  password:
 #
-#production:
-#  adapter: mysql
-#  database: help_production
-#  username: root
-#  password:
+production:
+  adapter: mysql
+  database: help_production
+  username: root
+  password:
 #
 #

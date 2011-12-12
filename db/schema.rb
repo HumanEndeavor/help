@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20111020150029) do
     t.integer  "district_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "latitude"
+    t.float    "lattitude"
     t.float    "longitude"
     t.boolean  "gmaps"
     t.string   "address"
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(:version => 20111020150029) do
   end
 
   create_table "people", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "emailid"
+    t.integer  "state_id"
+    t.integer  "district_id"
+    t.integer  "age"
+    t.string   "qualification"
+    t.string   "job_status"
+    t.string   "sex"
+    t.string   "address"
+    t.integer  "contact_number"
+    t.boolean  "rural"
+    t.integer  "photo_id"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "ngo_id"
