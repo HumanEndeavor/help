@@ -32,7 +32,6 @@ GEM
       multi_json (~> 1.0)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
-    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
     cocaine (0.2.1)
     coffee-rails (3.1.1)
@@ -51,7 +50,7 @@ GEM
     factory_girl_rails (1.4.0)
       factory_girl (~> 2.3.0)
       railties (>= 3.0.0)
-    gmaps4rails (1.4.1)
+    gmaps4rails (1.4.2)
       json
     haml (3.1.4)
     hike (1.2.1)
@@ -68,7 +67,6 @@ GEM
     mime-types (1.17.2)
     multi_json (1.0.4)
     mysql (2.8.1)
-    mysql (2.8.1-x86-mingw32)
     paperclip (2.4.5)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
@@ -142,7 +140,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
