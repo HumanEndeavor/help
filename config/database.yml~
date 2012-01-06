@@ -9,13 +9,13 @@ development:
   username: root
   password: 
 #
-test:
+#test:
   adapter: mysql
   database: help_test
   username: root
   password:
 #
-production:
+#production:
   adapter: mysql
   database: help_production
   username: root

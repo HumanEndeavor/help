@@ -8,7 +8,14 @@
 //= require jquery.sizes
 //= require jquery_ujs
 //= require_tree .
-
+//= require_jquery.hoverimagetext
+jQuery(document).ready(function(){
+displayOnMouseover() = function(){
+  $(document).ready(function() {
+  $('.swv li').HoverImageText();
+  })
+  }
+  
 
 
 

@@ -76,6 +76,11 @@ ActiveRecord::Schema.define(:version => 20111020150029) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "gender"
+    t.integer  "state_id"
+    t.integer  "district_id"
+    t.string   "qualification"
+    t.decimal  "family_income",      :precision => 10, :scale => 0
   end
 
   create_table "photos", :force => true do |t|

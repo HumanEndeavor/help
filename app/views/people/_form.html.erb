@@ -20,6 +20,14 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
+    <%= f.label :qualification %><br />
+    <%= f.text_field :qualification %>
+  </div>
+  <div class="field">
+    <%= f.label :family_income %><br />
+    <%= f.text_field :family_income %>
+  </div>
+  <div class="field">
     <%= f.file_field :photo %>
   </div>
   <div class="actions">
@@ -28,7 +36,7 @@
 <% end %>
 <script>
 $(function() {
-  $( "#person_name" ).autocomplete({
+  $( "#person_fullname" ).autocomplete({
     source: "<%= people_path(:format => :json, :field => 'name') %>"
   });
 });
