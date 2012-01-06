@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem "json", "1.5.3"
 gem 'execjs'
 gem 'therubyracer'
-
+gem 'pg'
 
 
 group :development, :test do
