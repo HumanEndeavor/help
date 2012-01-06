@@ -51,8 +51,11 @@ Help::Application.configure do
 config.assets.compress = true
 
 # Don't fallback to assets pipeline if a precompiled asset is missed
-config.assets.compile = false
+config.assets.compile = true 
 
 # Generate digests for assets URLs
 config.assets.digest = true
+config.assets.precompile += %w(education.js application.js jquery.easing.1.3.js jquery.slideviewer.1.2.js education.js jquery.electric-slide.js jquery-ui.js 
+gmaps4rails/gmap4rails.bing.js.coffee gmaps4rails/gmap4rails.base.js gmaps4rails/gmap4rails.googlemaps.js.coffee gmaps4rails/gmap4rails.mapquest.js.coffee gmaps4rails/gmap4rails.openlayers.js.coffee jquery.min.js jquery-ui.min.js jquery.1.6.4.min.js jquey.sizes.js application.css education.css gmap4rails.css homePageSheet.css styles.css
+)
 end
