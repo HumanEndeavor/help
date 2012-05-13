@@ -155,7 +155,6 @@ DEPENDENCIES
   pg
   rack
   rails (= 3.1)
-  rake (~> 0.9.2)
   rspec-rails (~> 2.6.1)
   sass-rails (~> 3.1.0)
   scaffoldhub

@@ -1,4 +1,6 @@
 Help::Application.routes.draw do
+  resources :acceptors
+
   resources :users
   #resources :images
   resources :home

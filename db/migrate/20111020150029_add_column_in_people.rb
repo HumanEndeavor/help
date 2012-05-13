@@ -5,6 +5,7 @@ class AddColumnInPeople < ActiveRecord::Migration
     add_column :people, :photo_file_size, :integer
     add_column :people, :photo_updated_at, :datetime
     add_column :people, :gender, :string
+
     add_column :people, :state_id, :integer
     add_column :people, :district_id, :integer
     add_column :people, :qualification, :string
@@ -17,7 +18,7 @@ class AddColumnInPeople < ActiveRecord::Migration
     remove_column :people, :photo_file_size
     remove_column :people, :photo_updated_at
     remove_column :people, :gender
-    remove_column :people, :state_id
+#    remove_column :people, :state_id
     remove_column :people, :district_id
     remove_column :people, :qualification
     remove_column :people, :family_income
