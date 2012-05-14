@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @acceptor.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @acceptor.last_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @acceptor.address %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @acceptor.zipcode %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @acceptor.state_id %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @acceptor.region %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @acceptor.category_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_acceptor_path(@acceptor) %> |
+<%= link_to 'Back', acceptors_path %>

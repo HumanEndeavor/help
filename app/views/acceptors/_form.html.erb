@@ -1,0 +1,45 @@
+<%= form_for(@acceptor) do |f| %>
+  <% if @acceptor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@acceptor.errors.count, "error") %> prohibited this acceptor from being saved:</h2>
+
+      <ul>
+      <% @acceptor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.number_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :state_id %><br />
+    <%= f.number_field :state_id %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.number_field :category_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

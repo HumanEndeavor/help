@@ -1,0 +1,35 @@
+<h1>Listing acceptors</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
+    <th>Zipcode</th>
+    <th>State</th>
+    <th>Region</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @acceptors.each do |acceptor| %>
+  <tr>
+    <td><%= acceptor.first_name %></td>
+    <td><%= acceptor.last_name %></td>
+    <td><%= acceptor.address %></td>
+    <td><%= acceptor.zipcode %></td>
+    <td><%= acceptor.state_id %></td>
+    <td><%= acceptor.region %></td>
+    <td><%= acceptor.category_id %></td>
+    <td><%= link_to 'Show', acceptor %></td>
+    <td><%= link_to 'Edit', edit_acceptor_path(acceptor) %></td>
+    <td><%= link_to 'Destroy', acceptor, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Acceptor', new_acceptor_path %>
