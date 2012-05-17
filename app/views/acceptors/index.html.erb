@@ -1,35 +1,46 @@
-<h1>Listing acceptors</h1>
-
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Address</th>
-    <th>Zipcode</th>
-    <th>State</th>
-    <th>Region</th>
-    <th>Category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @acceptors.each do |acceptor| %>
-  <tr>
-    <td><%= acceptor.first_name %></td>
-    <td><%= acceptor.last_name %></td>
-    <td><%= acceptor.address %></td>
-    <td><%= acceptor.zipcode %></td>
-    <td><%= acceptor.state_id %></td>
-    <td><%= acceptor.region %></td>
-    <td><%= acceptor.category_id %></td>
-    <td><%= link_to 'Show', acceptor %></td>
-    <td><%= link_to 'Edit', edit_acceptor_path(acceptor) %></td>
-    <td><%= link_to 'Destroy', acceptor, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<%- model_class = Acceptor.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:zipcode) %></th>
+      <th><%= model_class.human_attribute_name(:state_id) %></th>
+      <th><%= model_class.human_attribute_name(:region) %></th>
+      <th><%= model_class.human_attribute_name(:category_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @acceptors.each do |acceptor| %>
+      <tr>
+        <td><%= link_to acceptor.id, acceptor_path(acceptor) %></td>
+        <td><%= acceptor.first_name %></td>
+        <td><%= acceptor.last_name %></td>
+        <td><%= acceptor.address %></td>
+        <td><%= acceptor.zipcode %></td>
+        <td><%= acceptor.state_id %></td>
+        <td><%= acceptor.region %></td>
+        <td><%= acceptor.category_id %></td>
+        <td><%=l acceptor.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_acceptor_path(acceptor), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      acceptor_path(acceptor),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Acceptor', new_acceptor_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_acceptor_path,
+            :class => 'btn btn-primary' %>

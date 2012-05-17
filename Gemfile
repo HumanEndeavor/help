@@ -20,6 +20,7 @@ gem "json", "1.5.3"
 gem 'execjs'
 gem 'therubyracer'
 gem 'pg'
+
 group :development, :test do
   gem 'mysql'
   gem "rspec-rails", "~> 2.6.1"
@@ -31,4 +32,5 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'sass-rails', "~> 3.1.0"
   gem 'uglifier'
+  gem 'twitter-bootstrap-rails'
 end

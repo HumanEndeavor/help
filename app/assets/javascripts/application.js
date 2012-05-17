@@ -7,6 +7,7 @@
 //= require_self
 //= require jquery.sizes
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
 //= require_jquery.hoverimagetext
 jQuery(document).ready(function(){
