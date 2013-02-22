@@ -1,3 +1,4 @@
+<% javascript_include_tag 'gmaps4rails/bing.js', 'gmaps4rails/gmaps4rails.googlemaps.js', 'gmaps4rails/mapquest.js', 'gmaps4rails/openlayers.js', 'gmaps4rails/all_apis.js'%>
 <%- model_class = Ngo -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
@@ -10,7 +11,7 @@
       <th><%= model_class.human_attribute_name(:category_id) %></th>
       <th><%= model_class.human_attribute_name(:state_id) %></th>
       <th><%= model_class.human_attribute_name(:district_id) %></th>
-      <th><%= model_class.human_attribute_name(:lattitude) %></th>
+      <th><%= model_class.human_attribute_name(:latitude) %></th>
       <th><%= model_class.human_attribute_name(:longitude) %></th>
       <th><%= model_class.human_attribute_name(:gmaps) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
@@ -26,7 +27,7 @@
         <td><%= ngo.category_id %></td>
         <td><%= ngo.state_id %></td>
         <td><%= ngo.district_id %></td>
-        <td><%= ngo.lattitude %></td>
+        <td><%= ngo.latitude %></td>
         <td><%= ngo.longitude %></td>
         <td><%= ngo.gmaps %></td>
         <td><%= ngo.address %></td>
@@ -44,7 +45,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= gmaps4rails(@json)%>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_ngo_path,
             :class => 'btn btn-primary' %>

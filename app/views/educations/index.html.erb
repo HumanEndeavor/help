@@ -1,6 +1,7 @@
 <%=javascript_include_tag "education"%>
+<% javascript_include_tag 'gmaps4rails/bing.js', 'gmaps4rails/gmaps4rails.googlemaps.js', 'gmaps4rails/mapquest.js', 'gmaps4rails/openlayers.js', 'gmaps4rails/all_apis.js'%>
 
-
+<%= gmaps4rails(@json) %>
 <%= render :partial => 'layouts/choose_option'%>
 <%= render :partial => 'form'%>
 

@@ -78,8 +78,8 @@ namespace :db do
     ["Ngo1", "Ngo2", "Ngo3"].each do |ngo|
       Ngo.create(:name => ngo,
         :state_id => State.find_by_name("Maharashtra").id,
-        :district_id => District.find_by_name("Mumbai"),
-        :category_id => Category.find_by_name("education"))
+        :district_id => District.find_by_name("Mumbai").id,
+        :category_id => Category.find_by_name("education").id)
     end
   end
 
