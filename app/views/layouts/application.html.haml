@@ -22,7 +22,8 @@
             %li= link_to 'Provide Employment',root_path
           %div{:style => "position:relative; display:inline;margin-left:15px;"}
             %li= link_to '  Support ',root_path
-    %center= yield
+    .container
+      = yield
     %center= yield :scripts
     
     
