@@ -1,29 +1,32 @@
-%head
-  %title Help
-  = stylesheet_link_tag "application"
-  = javascript_include_tag "application"
-  = csrf_meta_tag
-%body
-  #main
-    #topBanner
-      %center= image_tag "top_banner.gif"
-    #tabs
-      %center
-        %ul
-          %div{:style => "position:relative; display:inline;margin-left:-80px;"}
-            %li= link_to 'Education', educations_path
-          %div{:style => "position:relative; display:inline;margin-left:15px;"}
-            %li= link_to 'Old-age Home',people_path
-          %div{:style => "position:relative; display:inline;margin-left:15px;"}
-            %li= link_to 'Orphanages',root_path
-          %div{:style => "position:relative; display:inline;margin-left:15px;"}
-            %li= link_to 'Medical Facilities',root_path
-          %div{:style => "position:relative;display:inline;margin-left:15px;"}
-            %li= link_to 'Provide Employment',root_path
-          %div{:style => "position:relative; display:inline;margin-left:15px;"}
-            %li= link_to '  Support ',root_path
+%html
+  %head
+    %title Store
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#{root_path}"} Home
+          .nav-collapse
+            %ul.nav
+              %li= link_to "Education", educations_path
+              %li= link_to "Medical Facilities"
+              %li= link_to "Employment"
+              %li= link_to  "Orphanage"
+              %li= link_to "Old-age Homes"
+              %li= link_to "Contact Us"
     .container
-      = yield
-    %center= yield :scripts
-    
-    
+      .row:
+        .span9= yield
+        .span3
+          %h2 About Us
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

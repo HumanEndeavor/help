@@ -1,43 +1,122 @@
-<%= form_for(@person, :html => {:multipart => true}) do |f| %>
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-      <% @person.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @person, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :emailid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :emailid, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :state_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :state_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :district_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :district_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :age, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :age, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :qualification, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :qualification, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :job_status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :job_status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sex, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :sex, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :contact_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :contact_number, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :rural, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :rural, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :photo_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ngo_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :ngo_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo_file_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :photo_file_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo_content_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :photo_content_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo_file_size, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :photo_file_size, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :photo_updated_at, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :photo_updated_at, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :gender, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :gender, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :qualification %><br />
-    <%= f.text_field :qualification %>
-  </div>
-  <div class="field">
-    <%= f.label :family_income %><br />
-    <%= f.text_field :family_income %>
-  </div>
-  <div class="field">
-    <%= f.file_field :photo %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                people_path, :class => 'btn' %>
   </div>
 <% end %>
-<script>
-$(function() {
-  $( "#person_fullname" ).autocomplete({
-    source: "<%= people_path(:format => :json, :field => 'name') %>"
-  });
-});
-</script>

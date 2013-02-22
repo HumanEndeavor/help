@@ -1,34 +1,24 @@
-<%- model_class = @acceptor.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<%- model_class = Acceptor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong><%= model_class.human_attribute_name(:first_name) %>:</strong><br>
-  <%= @acceptor.first_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:last_name) %>:</strong><br>
-  <%= @acceptor.last_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:address) %>:</strong><br>
-  <%= @acceptor.address %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:zipcode) %>:</strong><br>
-  <%= @acceptor.zipcode %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:state_id) %>:</strong><br>
-  <%= @acceptor.state_id %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:region) %>:</strong><br>
-  <%= @acceptor.region %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:category_id) %>:</strong><br>
-  <%= @acceptor.category_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @acceptor.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @acceptor.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @acceptor.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:zipcode) %>:</strong></dt>
+  <dd><%= @acceptor.zipcode %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state_id) %>:</strong></dt>
+  <dd><%= @acceptor.state_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:region) %>:</strong></dt>
+  <dd><%= @acceptor.region %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
+  <dd><%= @acceptor.category_id %></dd>
+</dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -38,6 +28,6 @@
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               acceptor_path(@acceptor),
               :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
