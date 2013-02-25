@@ -1,14 +1,57 @@
-%h3
-  Ngo location has been successfully created
-%p
-  Address
-  = @ngo.address
-%p
-  Latitude
-  = @ngo.latitude
-%p
-  Longitude
-  = @ngo.longitude
-%p
-  Category
-  = @ngo.category
+= notice
+- model_class = Ngo
+.page-header
+  %h1= t '.title', :default => model_class.model_name.human
+%dl.dl-horizontal
+  %dt
+    %strong
+      = model_class.human_attribute_name(:name)
+      \:
+  %dd= @ngo.name
+  %dt
+    %strong
+      = model_class.human_attribute_name(:category_id)
+      \:
+  %dd= @ngo.category_id
+  %dt
+    %strong
+      = model_class.human_attribute_name(:state_id)
+      \:
+  %dd= @ngo.state_id
+  %dt
+    %strong
+      = model_class.human_attribute_name(:district_id)
+      \:
+  %dd= @ngo.district_id
+  %dt
+    %strong
+      = model_class.human_attribute_name(:latitude)
+      \:
+  %dd= @ngo.latitude
+  %dt
+    %strong
+      = model_class.human_attribute_name(:longitude)
+      \:
+  %dd= @ngo.longitude
+  %dt
+    %strong
+      = model_class.human_attribute_name(:gmaps)
+      \:
+  %dd= @ngo.gmaps
+  %dt
+    %strong
+      = model_class.human_attribute_name(:address)
+      \:
+  %dd= @ngo.address
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), |
+    ngos_path, :class => 'btn'                               |
+  -#
+  = link_to t('.edit', :default => t("helpers.links.edit")), |
+    edit_ngo_path(@ngo), :class => 'btn'                     |
+  -#
+  = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
+    ngo_path(@ngo),                                                                                              |
+    :method => 'delete',                                                                                         |
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, |
+    :class => 'btn btn-danger'                                                                                   |
